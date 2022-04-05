@@ -194,7 +194,7 @@ class HomePage extends StatelessWidget {
                 ),
                 items: imgList.map<Widget>((e){
                   return Container(
-                    margin: EdgeInsets.symmetric(horizontal: 10.0, vertical: 0.0),
+                    margin: EdgeInsets.symmetric(horizontal: 15.0, vertical: 0.0),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(16.0),
                       image: DecorationImage(
