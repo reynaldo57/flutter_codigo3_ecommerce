@@ -1,7 +1,12 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
 
@@ -191,7 +196,13 @@ class HomePage extends StatelessWidget {
                 options: CarouselOptions(
                   height: 180.0,
                   autoPlay: true,
-                  autoPlayAnimationDuration: Duration(milliseconds: 1500)
+                  autoPlayAnimationDuration: Duration(milliseconds: 1500),
+                  onPageChanged: (int index, _){
+                    _current = index;
+                    setState(() {
+
+                    });
+                  }
                 ),
                 items: imgList.map<Widget>((e){
                   return Container(
@@ -220,8 +231,8 @@ class HomePage extends StatelessWidget {
                           shape: BoxShape.circle,
                           color: (Theme.of(context).brightness == Brightness.dark
                               ? Colors.white
-                              : Colors.black)
-                              .withOpacity(_current == entry.key ? 0.9 : 0.4)),
+                              : Color(0xfffa4a11))
+                              .withOpacity(_current == entry.key ? 0.9 : 0.12)),
                     ),
                   );
                 }).toList(),
