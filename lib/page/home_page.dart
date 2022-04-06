@@ -46,22 +46,23 @@ class _HomePageState extends State<HomePage> {
                   filled: true,
                   suffixIcon: Container(
                     decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(16.0),
-                        gradient: LinearGradient(
-                          colors: [
-                            Color(0xffFF7B4D),
-                            Color(0xffF72727),
-                          ],
-                          begin: Alignment.topCenter,
-                          end: Alignment.bottomCenter,
+                      borderRadius: BorderRadius.circular(16.0),
+                      gradient: LinearGradient(
+                        colors: [
+                          Color(0xffFF7B4D),
+                          Color(0xffF72727),
+                        ],
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomCenter,
+                      ),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Color(0xffF72727).withOpacity(0.6),
+                          blurRadius: 7,
+                          offset: Offset(0, 4),
                         ),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Color(0xffF72727).withOpacity(0.6),
-                            blurRadius: 7,
-                            offset: Offset(0, 4),
-                          ),
-                        ]),
+                      ],
+                    ),
                     child: Icon(
                       Icons.search,
                       color: Colors.white,
@@ -69,6 +70,51 @@ class _HomePageState extends State<HomePage> {
                   ),
                   fillColor: Color(0xffF7F8FA),
                 ),
+              ),
+              SizedBox(
+                height: 20.0,
+              ),
+              Row(
+                children: [
+                  Column(
+                    children: [
+                      Container(
+                        height: 80.0,
+                        width: 80,
+                        padding: EdgeInsets.all(8.0),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20.0),
+                          color: Colors.greenAccent,
+                          gradient: LinearGradient(
+                            colors: [
+                              Color(0xff69EDA4),
+                              Color(0xff21BE68),
+                            ],
+                            begin: Alignment.topCenter,
+                            end: Alignment.bottomCenter,
+                          ),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Color(0xff21BE68).withOpacity(0.6),
+                              blurRadius: 7,
+                              offset: Offset(0, 4),
+                            ),
+                          ],
+                        ),
+                        child: Image.asset('assets/images/sneakers.png'),
+                      ),
+                      SizedBox(
+                        height: 10.0,
+                      ),
+                      Text(
+                        "Zapatillas",
+                        style: TextStyle(
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
+                    ],
+                  )
+                ],
               ),
               SizedBox(
                 height: 20.0,
