@@ -19,7 +19,6 @@ class _HomePageState extends State<HomePage> {
   final CarouselController _controller = CarouselController();
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
@@ -114,7 +113,10 @@ class _HomePageState extends State<HomePage> {
                     Container(
                         height: 76,
                         width: 220,
-                        margin: EdgeInsets.only(right: 12, bottom: 12,),
+                        margin: EdgeInsets.only(
+                          right: 12,
+                          bottom: 12,
+                        ),
                         padding: EdgeInsets.only(left: 16.0),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(30.0),
@@ -152,7 +154,10 @@ class _HomePageState extends State<HomePage> {
                     Container(
                         height: 76,
                         width: 220,
-                        margin: EdgeInsets.only(right: 12, bottom: 12,),
+                        margin: EdgeInsets.only(
+                          right: 12,
+                          bottom: 12,
+                        ),
                         padding: EdgeInsets.only(left: 16.0),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(30.0),
@@ -195,40 +200,39 @@ class _HomePageState extends State<HomePage> {
               ),
               Row(
                 children: [
-                  Text("Promociones", style: TextStyle(
-                    color: Color(0xffFA4F3E),
-                    fontWeight: FontWeight.w900,
-                    fontSize: 24.0
-                  ),),
+                  Text(
+                    "Promociones",
+                    style: TextStyle(
+                        color: Color(0xffFA4F3E),
+                        fontWeight: FontWeight.w900,
+                        fontSize: 24.0),
+                  ),
                 ],
               ),
-              SizedBox(height: 14,),
+              SizedBox(
+                height: 14,
+              ),
               CarouselSlider(
                 options: CarouselOptions(
-                  height: 180.0,
-                  autoPlay: true,
-                  autoPlayAnimationDuration: Duration(milliseconds: 1500),
-                  onPageChanged: (int index, _){
-                    _current = index;
-                    setState(() {
-
-                    });
-                  }
-                ),
-                items: imgList.map<Widget>((e){
+                    height: 180.0,
+                    autoPlay: true,
+                    autoPlayAnimationDuration: Duration(milliseconds: 1500),
+                    onPageChanged: (int index, _) {
+                      _current = index;
+                      setState(() {});
+                    }),
+                items: imgList.map<Widget>((e) {
                   return Container(
-                    margin: EdgeInsets.symmetric(horizontal: 15.0, vertical: 0.0),
+                    margin:
+                        EdgeInsets.symmetric(horizontal: 15.0, vertical: 0.0),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(16.0),
                       image: DecorationImage(
-                        image: NetworkImage(e),
-                        fit: BoxFit.cover
-                      ),
+                          image: NetworkImage(e), fit: BoxFit.cover),
                     ),
                   );
                 }).toList(),
               ),
-
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: imgList.asMap().entries.map((entry) {
@@ -237,12 +241,14 @@ class _HomePageState extends State<HomePage> {
                     child: Container(
                       width: 12.0,
                       height: 12.0,
-                      margin: EdgeInsets.symmetric(vertical: 8.0, horizontal: 4.0),
+                      margin:
+                          EdgeInsets.symmetric(vertical: 8.0, horizontal: 4.0),
                       decoration: BoxDecoration(
                           shape: BoxShape.circle,
-                          color: (Theme.of(context).brightness == Brightness.dark
-                              ? Colors.white
-                              : Color(0xfffa4a11))
+                          color: (Theme.of(context).brightness ==
+                                      Brightness.dark
+                                  ? Colors.white
+                                  : Color(0xfffa4a11))
                               .withOpacity(_current == entry.key ? 0.9 : 0.12)),
                     ),
                   );
@@ -253,33 +259,198 @@ class _HomePageState extends State<HomePage> {
               ),
               Row(
                 children: [
-                  Text("Marcas", style: TextStyle(
-                      color: Color(0xffFA4F3E),
-                      fontWeight: FontWeight.w700,
-                      fontSize: 20.0
-                  ),),
+                  Text(
+                    "Marcas",
+                    style: TextStyle(
+                        color: Color(0xffFA4F3E),
+                        fontWeight: FontWeight.w700,
+                        fontSize: 20.0),
+                  ),
                 ],
               ),
-              SizedBox(height: 14,),
-
+              SizedBox(
+                height: 14,
+              ),
               GridView.count(
                 crossAxisCount: 2,
                 primary: true,
                 shrinkWrap: true,
+                crossAxisSpacing: 10,
+                mainAxisSpacing: 10,
                 physics: ScrollPhysics(),
                 children: [
-                  Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20.0),
-                      color: Colors.greenAccent,
-                      image: DecorationImage(
-                        image: NetworkImage("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5q_7KohDl0etx6MyvE-7k8WHsXQ7LfHHiwQ&usqp=CAU"),
-                        fit: BoxFit.cover
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(20.0),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20.0),
+                        color: Colors.greenAccent,
+                        image: DecorationImage(
+                            image: NetworkImage(
+                                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5q_7KohDl0etx6MyvE-7k8WHsXQ7LfHHiwQ&usqp=CAU"),
+                            fit: BoxFit.cover),
+                      ),
+                      child: Stack(
+                        children: [
+                          Container(
+                            decoration: BoxDecoration(
+                              gradient: LinearGradient(
+                                colors: [
+                                  Color(0xff121212),
+                                  Colors.transparent,
+                                ],
+                                begin: Alignment.bottomCenter,
+                                end: Alignment(0, 0.5),
+                              ),
+                            ),
+                          ),
+                          Align(
+                            alignment: Alignment.bottomCenter,
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text(
+                                "Adidas",
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 15.0,
+                                ),
+                              ),
+                            ),
+                          )
+                        ],
                       ),
                     ),
-                    child: Text("Adidas"),
                   ),
-                  
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(20.0),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20.0),
+                        color: Colors.greenAccent,
+                        image: DecorationImage(
+                            image: NetworkImage(
+                                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5q_7KohDl0etx6MyvE-7k8WHsXQ7LfHHiwQ&usqp=CAU"),
+                            fit: BoxFit.cover),
+                      ),
+                      child: Stack(
+                        children: [
+                          Container(
+                            decoration: BoxDecoration(
+                              gradient: LinearGradient(
+                                colors: [
+                                  Color(0xff121212),
+                                  Colors.transparent,
+                                ],
+                                begin: Alignment.bottomCenter,
+                                end: Alignment(0, 0.5),
+                              ),
+                            ),
+                          ),
+                          Align(
+                            alignment: Alignment.bottomCenter,
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text(
+                                "Adidas",
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 15.0,
+                                ),
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(20.0),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20.0),
+                        color: Colors.greenAccent,
+                        image: DecorationImage(
+                            image: NetworkImage(
+                                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5q_7KohDl0etx6MyvE-7k8WHsXQ7LfHHiwQ&usqp=CAU"),
+                            fit: BoxFit.cover),
+                      ),
+                      child: Stack(
+                        children: [
+                          Container(
+                            decoration: BoxDecoration(
+                              gradient: LinearGradient(
+                                colors: [
+                                  Color(0xff121212),
+                                  Colors.transparent,
+                                ],
+                                begin: Alignment.bottomCenter,
+                                end: Alignment(0, 0.5),
+                              ),
+                            ),
+                          ),
+                          Align(
+                            alignment: Alignment.bottomCenter,
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text(
+                                "Adidas",
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 15.0,
+                                ),
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(20.0),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20.0),
+                        color: Colors.greenAccent,
+                        image: DecorationImage(
+                            image: NetworkImage(
+                                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5q_7KohDl0etx6MyvE-7k8WHsXQ7LfHHiwQ&usqp=CAU"),
+                            fit: BoxFit.cover),
+                      ),
+                      child: Stack(
+                        children: [
+                          Container(
+                            decoration: BoxDecoration(
+                              gradient: LinearGradient(
+                                colors: [
+                                  Color(0xff121212),
+                                  Colors.transparent,
+                                ],
+                                begin: Alignment.bottomCenter,
+                                end: Alignment(0, 0.5),
+                              ),
+                            ),
+                          ),
+                          Align(
+                            alignment: Alignment.bottomCenter,
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text(
+                                "Adidas",
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 15.0,
+                                ),
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
                 ],
               )
             ],
