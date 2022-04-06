@@ -261,6 +261,27 @@ class _HomePageState extends State<HomePage> {
                 ],
               ),
               SizedBox(height: 14,),
+
+              GridView.count(
+                crossAxisCount: 2,
+                primary: true,
+                shrinkWrap: true,
+                physics: ScrollPhysics(),
+                children: [
+                  Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20.0),
+                      color: Colors.greenAccent,
+                      image: DecorationImage(
+                        image: NetworkImage("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5q_7KohDl0etx6MyvE-7k8WHsXQ7LfHHiwQ&usqp=CAU"),
+                        fit: BoxFit.cover
+                      ),
+                    ),
+                    child: Text("Adidas"),
+                  ),
+                  
+                ],
+              )
             ],
           ),
         ),
