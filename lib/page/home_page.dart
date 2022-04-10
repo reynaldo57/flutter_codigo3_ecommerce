@@ -21,13 +21,39 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
+      appBar: AppBar(
+        elevation: 0,
+        backgroundColor: Colors.white,
+        iconTheme: IconThemeData(color: Colors.black87),
+        title: Text(
+          "La tienda de Kiko",
+          style: TextStyle(
+            color: Colors.black87,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        actions: [
+          IconButton(
+            onPressed: () {},
+            icon: Icon(
+              Icons.person_outline_outlined,
+            ),
+          ),
+          IconButton(
+            onPressed: () {},
+            icon: Icon(
+              Icons.shopping_cart_outlined,
+            ),
+          ),
+        ],
+      ),
       body: SafeArea(
         child: SingleChildScrollView(
           padding: EdgeInsets.symmetric(horizontal: 12.0),
           child: Column(
             children: [
               SizedBox(
-                height: 20.0,
+                height: 10.0,
               ),
               TextField(
                 decoration: InputDecoration(
@@ -72,9 +98,10 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
               SizedBox(
-                height: 20.0,
+                height: 30.0,
               ),
               Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Column(
                     children: [
@@ -113,11 +140,87 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ),
                     ],
-                  )
+                  ),
+                  Column(
+                    children: [
+                      Container(
+                        height: 80.0,
+                        width: 80,
+                        padding: EdgeInsets.all(14.0),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20.0),
+                          color: Colors.greenAccent,
+                          gradient: LinearGradient(
+                            colors: [
+                              Color(0xffC065DC),
+                              Color(0xff5B2AF6),
+                            ],
+                            begin: Alignment.topCenter,
+                            end: Alignment.bottomCenter,
+                          ),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Color(0xff5B2AF6).withOpacity(0.6),
+                              blurRadius: 7,
+                              offset: Offset(0, 4),
+                            ),
+                          ],
+                        ),
+                        child: Image.asset('assets/images/tshirt.png'),
+                      ),
+                      SizedBox(
+                        height: 10.0,
+                      ),
+                      Text(
+                        "Polos",
+                        style: TextStyle(
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
+                    ],
+                  ),
+                  Column(
+                    children: [
+                      Container(
+                        height: 80.0,
+                        width: 80,
+                        padding: EdgeInsets.all(10.0),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20.0),
+                          color: Colors.greenAccent,
+                          gradient: LinearGradient(
+                            colors: [
+                              Color(0xffFFCA53),
+                              Color(0xffFF7D02),
+                            ],
+                            begin: Alignment.topCenter,
+                            end: Alignment.bottomCenter,
+                          ),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Color(0xffFF7D02).withOpacity(0.6),
+                              blurRadius: 7,
+                              offset: Offset(0, 4),
+                            ),
+                          ],
+                        ),
+                        child: Image.asset('assets/images/cap.png'),
+                      ),
+                      SizedBox(
+                        height: 10.0,
+                      ),
+                      Text(
+                        "Accesorios",
+                        style: TextStyle(
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
+                    ],
+                  ),
                 ],
               ),
               SizedBox(
-                height: 20.0,
+                height: 36.0,
               ),
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
@@ -242,7 +345,7 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
               SizedBox(
-                height: 10.0,
+                height: 16.0,
               ),
               Row(
                 children: [
@@ -256,7 +359,7 @@ class _HomePageState extends State<HomePage> {
                 ],
               ),
               SizedBox(
-                height: 14,
+                height: 22,
               ),
               CarouselSlider(
                 options: CarouselOptions(
