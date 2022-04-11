@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
 
 class HomePage extends StatefulWidget {
   @override
@@ -17,6 +18,25 @@ class _HomePageState extends State<HomePage> {
   ];
   int _current = 0;
   final CarouselController _controller = CarouselController();
+
+
+  @override
+  initState(){
+    super.initState();
+    getBanners();
+  }
+
+  getBanners() async{
+    String _path = "http://192.168.18.6:8000/api/banner/";
+    Uri _uri = Uri.parse(_path);
+    http.Response response = await http.get(_uri);
+    if(response.statusCode == 200){
+      print("Banners Completos");
+    }
+  }
+
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
