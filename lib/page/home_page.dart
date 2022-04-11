@@ -68,6 +68,7 @@ class _HomePageState extends State<HomePage> {
                   hintText: "Buscar Producto",
                   hintStyle: TextStyle(
                     color: Color(0xff9D9EA0),
+                    fontSize: 14.0,
                   ),
                   filled: true,
                   suffixIcon: Container(
@@ -75,15 +76,15 @@ class _HomePageState extends State<HomePage> {
                       borderRadius: BorderRadius.circular(16.0),
                       gradient: LinearGradient(
                         colors: [
-                          Color(0xffFF7B4D),
-                          Color(0xffF72727),
+                          Color(0xff5581F1),
+                          Color(0xff1153FC),
                         ],
                         begin: Alignment.topCenter,
                         end: Alignment.bottomCenter,
                       ),
                       boxShadow: [
                         BoxShadow(
-                          color: Color(0xffF72727).withOpacity(0.6),
+                          color: Color(0xff1153FC).withOpacity(0.6),
                           blurRadius: 7,
                           offset: Offset(0, 4),
                         ),
@@ -114,15 +115,15 @@ class _HomePageState extends State<HomePage> {
                           color: Colors.greenAccent,
                           gradient: LinearGradient(
                             colors: [
-                              Color(0xff69EDA4),
-                              Color(0xff21BE68),
+                              Color(0xff5581F1),
+                              Color(0xff1153FC),
                             ],
                             begin: Alignment.topCenter,
                             end: Alignment.bottomCenter,
                           ),
                           boxShadow: [
                             BoxShadow(
-                              color: Color(0xff21BE68).withOpacity(0.6),
+                              color: Color(0xff1153FC).withOpacity(0.6),
                               blurRadius: 7,
                               offset: Offset(0, 4),
                             ),
@@ -352,9 +353,11 @@ class _HomePageState extends State<HomePage> {
                   Text(
                     "Promociones",
                     style: TextStyle(
-                        color: Color(0xffFA4F3E),
+                        color: Color(0xff212121),
                         fontWeight: FontWeight.w900,
-                        fontSize: 24.0),
+                        fontFamily: 'SourceSansPro-SemiBold',
+                        fontSize: 15.0
+                    ),
                   ),
                 ],
               ),
@@ -411,9 +414,11 @@ class _HomePageState extends State<HomePage> {
                   Text(
                     "Marcas",
                     style: TextStyle(
-                        color: Color(0xffFA4F3E),
-                        fontWeight: FontWeight.w700,
-                        fontSize: 20.0),
+                        color: Color(0xff212121),
+                        fontWeight: FontWeight.w900,
+                        fontFamily: 'SourceSansPro-Regular',
+                        fontSize: 15.0
+                    ),
                   ),
                 ],
               ),
