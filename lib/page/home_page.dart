@@ -346,7 +346,7 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
               SizedBox(
-                height: 16.0,
+                height: 30.0,
               ),
               Row(
                 children: [
@@ -391,23 +391,22 @@ class _HomePageState extends State<HomePage> {
                   return GestureDetector(
                     onTap: () => _controller.animateToPage(entry.key),
                     child: Container(
-                      width: 12.0,
-                      height: 12.0,
+                      width: 8.0,
+                      height: 8.0,
                       margin:
                           EdgeInsets.symmetric(vertical: 8.0, horizontal: 4.0),
                       decoration: BoxDecoration(
                           shape: BoxShape.circle,
-                          color: (Theme.of(context).brightness ==
-                                      Brightness.dark
-                                  ? Colors.white
-                                  : Color(0xfffa4a11))
-                              .withOpacity(_current == entry.key ? 0.9 : 0.12)),
+                          color: _current == entry.key
+                              ? Color.fromRGBO(0, 0, 0, 0.6)
+                              : Color.fromRGBO(0, 0, 0, 0.15),
+                      ),
                     ),
                   );
                 }).toList(),
               ),
               SizedBox(
-                height: 10.0,
+                height: 30.0,
               ),
               Row(
                 children: [
