@@ -47,7 +47,7 @@ class _HomePageState extends State<HomePage> {
     Uri _uri = Uri.parse(_path);
     http.Response response = await http.get(_uri);
     if(response.statusCode == 200){
-      listBanner = json.decode(response.body);
+      listBrand = json.decode(response.body);
       setState(() {
 
       });
@@ -470,7 +470,7 @@ class _HomePageState extends State<HomePage> {
                 crossAxisSpacing: 10,
                 mainAxisSpacing: 10,
                 physics: ScrollPhysics(),
-                children: listBrand.map<Widget>((item)=>ClipRRect(
+                children: listBrand.map<Widget>((item) => ClipRRect(
                   borderRadius: BorderRadius.circular(20.0),
                   child: Container(
                     decoration: BoxDecoration(
@@ -478,7 +478,8 @@ class _HomePageState extends State<HomePage> {
                       color: Colors.greenAccent,
                       image: DecorationImage(
                           image: NetworkImage(
-                              "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5q_7KohDl0etx6MyvE-7k8WHsXQ7LfHHiwQ&usqp=CAU"),
+                            item["image"],
+                          ),
                           fit: BoxFit.cover),
                     ),
                     child: Stack(
@@ -500,7 +501,7 @@ class _HomePageState extends State<HomePage> {
                           child: Padding(
                             padding: const EdgeInsets.all(8.0),
                             child: Text(
-                              "Adidas",
+                              item["brand"],
                               style: TextStyle(
                                 color: Colors.white,
                                 fontWeight: FontWeight.bold,
@@ -512,7 +513,10 @@ class _HomePageState extends State<HomePage> {
                       ],
                     ),
                   ),
-                ),).toList(),
+                )).toList(),
+              ),
+              SizedBox(
+                height: 14,
               ),
             ],
           ),
