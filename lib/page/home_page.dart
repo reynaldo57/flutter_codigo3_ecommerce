@@ -36,7 +36,7 @@ class _HomePageState extends State<HomePage> {
     Uri _uri = Uri.parse(_path);
     http.Response response = await http.get(_uri);
     if(response.statusCode == 200){
-      listBrand = json.decode(response.body);
+      listBanner = json.decode(response.body);
       setState(() {
 
       });
