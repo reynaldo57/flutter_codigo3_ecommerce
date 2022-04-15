@@ -1,6 +1,11 @@
 
 
+
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+
 
 class ProductListPage extends StatefulWidget {
 
@@ -9,6 +14,27 @@ class ProductListPage extends StatefulWidget {
 }
 
 class _ProductListPageState extends State<ProductListPage> {
+
+  List listProduct = [];
+
+  @override
+  initState(){
+    super.initState();
+    getProducts();
+  }
+
+  getProducts() async {
+    String _path = "http://192.168.18.6:8000/api/product/";
+    Uri _uri = Uri.parse(_path);
+    http.Response response = await http.get(_uri);
+    if(response.statusCode == 200){
+      listProduct = json.decode(response.body);
+      setState(() {
+
+      });
+    }
+    }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,75 +56,72 @@ class _ProductListPageState extends State<ProductListPage> {
         crossAxisCount: 2,
         childAspectRatio: 0.85,
         crossAxisSpacing: 10,
-        children: [
-          Container(
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Container(
-                  height: 160.0,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20.0),
-                    color: Colors.transparent,
-                    image: DecorationImage(
-                        fit: BoxFit.cover,
-                        image: NetworkImage(
-                            "http://192.168.18.6:8000/media/banners/banner_4.jpg"
-                        )
-                    ),
-                  ),
-                  child: Stack(
-                    children: [
-                      Positioned(
-                        right: 10.0,
-                        top: 10.0,
-                        child: Icon(
-                          Icons.more_vert,
-                        ),
+        children: listProduct.map<Widget>((e) => Container(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Container(
+                height: 160.0,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20.0),
+                  color: Colors.transparent,
+                  image: DecorationImage(
+                      fit: BoxFit.cover,
+                      image: NetworkImage(
+                          "http://192.168.18.6:8000/media/banners/banner_4.jpg"
                       )
-                    ],
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "zapatillas curt",
-                              style: TextStyle(
+                child: Stack(
+                  children: [
+                    Positioned(
+                      right: 10.0,
+                      top: 10.0,
+                      child: Icon(
+                        Icons.more_vert,
+                      ),
+                    )
+                  ],
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "zapatillas curt",
+                            style: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 color: Color(0xff121212)
-                              ),
-                              maxLines: 2,
-                              overflow: TextOverflow.ellipsis,
                             ),
-                            Text(
-                              "S/ 299.00",
-                              style: TextStyle(
-                                  fontWeight: FontWeight.normal,
-                                  color: Color(0xff121212)
-                              ),
+                            maxLines: 2,
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                          Text(
+                            "S/ 299.00",
+                            style: TextStyle(
+                                fontWeight: FontWeight.normal,
+                                color: Color(0xff121212)
                             ),
-                            SizedBox(
-                              height: 6,
-                            ),
-                          ],
-                        ),
+                          ),
+                          SizedBox(
+                            height: 6,
+                          ),
+                        ],
                       ),
-                      Icon(Icons.favorite_border)
-                    ],
-                  ),
-                )
-              ],
-            ),
+                    ),
+                    Icon(Icons.favorite_border)
+                  ],
+                ),
+              )
+            ],
           ),
-
-        ],
+        ),).toList(),
       ),
     );
   }
