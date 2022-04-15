@@ -68,8 +68,8 @@ class _ProductListPageState extends State<ProductListPage> {
                   image: DecorationImage(
                       fit: BoxFit.cover,
                       image: NetworkImage(
-                          "http://192.168.18.6:8000/media/banners/banner_4.jpg"
-                      )
+                          e["image"],
+                      ),
                   ),
                 ),
                 child: Stack(
@@ -94,16 +94,18 @@ class _ProductListPageState extends State<ProductListPage> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            "zapatillas curt",
+                            e["name"].toString().toUpperCase(),
                             style: TextStyle(
                                 fontWeight: FontWeight.bold,
-                                color: Color(0xff121212)
+                                color: Color(0xff121212),
+                                fontSize: 13.0,
+                              height: 1.2
                             ),
                             maxLines: 2,
                             overflow: TextOverflow.ellipsis,
                           ),
                           Text(
-                            "S/ 299.00",
+                            "S/ ${e["price"]}",
                             style: TextStyle(
                                 fontWeight: FontWeight.normal,
                                 color: Color(0xff121212)
