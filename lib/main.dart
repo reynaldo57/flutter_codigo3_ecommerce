@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_codigo3_ecommerce/page/home_page.dart';
+import 'package:flutter_codigo3_ecommerce/page/product_list_page.dart';
 
 void main() {
   runApp(MyApp());
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         fontFamily: 'SourceSansPro-Regular'
       ),
-      home: HomePage(),
+      home: ProductListPage(),
     );
   }
 }
