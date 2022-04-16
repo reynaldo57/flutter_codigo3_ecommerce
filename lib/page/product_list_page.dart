@@ -53,7 +53,7 @@ class _ProductListPageState extends State<ProductListPage> {
             .map<Widget>(
               (e) => GestureDetector(
                 onTap: () {
-                  print("hola");
+                  print(e);
                   // Navigator.push(
                   //   context,
                   //   MaterialPageRoute(
