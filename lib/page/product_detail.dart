@@ -230,11 +230,11 @@ class _ProductDetailpPgeState extends State<ProductDetailpPge> {
               width: double.infinity,
               margin: EdgeInsets.symmetric(vertical: 4.0, horizontal: 20.0),
               child: ElevatedButton.icon(
-                onPressed: (){},
+                onPressed: _quantity != 0 ? (){} : (){},
                 icon: Icon(Icons.add_shopping_cart_rounded),
                 label: Text("Agregar al Carrito"),
                 style: ElevatedButton.styleFrom(
-                  primary: Color(0xff121212),
+                  primary:Color(0xff121212),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(14.0),
                   ),
