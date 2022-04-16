@@ -37,7 +37,7 @@ class _ProductListPageState extends State<ProductListPage> {
         backgroundColor: Colors.white,
         iconTheme: IconThemeData(color: Colors.black87),
         title: Text(
-          "Lista de PRODUCTOS",
+          "Lista de Productos",
           style: TextStyle(
             color: Colors.black87,
             fontWeight: FontWeight.bold,
@@ -53,12 +53,13 @@ class _ProductListPageState extends State<ProductListPage> {
             .map<Widget>(
               (e) => GestureDetector(
                 onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => ProductDetailpPge(),
-                    ),
-                  );
+                  print("hola");
+                  // Navigator.push(
+                  //   context,
+                  //   MaterialPageRoute(
+                  //     builder: (context) => ProductDetailpPge(),
+                  //   ),
+                  // );
                 },
                 child: Container(
                   margin: EdgeInsets.symmetric(horizontal: 8, vertical: 8),
