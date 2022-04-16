@@ -24,6 +24,55 @@ class _CartPageState extends State<CartPage> {
           ),
         ),
       ),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Container(
+                  width: 100,
+                  height: 100,
+                  margin: EdgeInsets.only(right: 0.0),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(14.0),
+                    image: DecorationImage(
+                      fit: BoxFit.cover,
+                      image: NetworkImage("http://192.168.18.6:8000/media/banners/banner_1.jpg"),
+                    )
+                  ),
+                ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text("Adidas", style: TextStyle(fontSize: 12.0),),
+                    Text("Zapatillas SuperCourt", style: TextStyle(fontSize: 13.0, fontWeight: FontWeight.bold),),
+                    Text("S/ 299", style: TextStyle(fontSize: 12.0),),
+                    SizedBox(
+                      height: 4.0,
+                    ),
+                    Text("Remover", style: TextStyle(fontSize: 12.0, decoration: TextDecoration.underline),),
+                  ],
+                ),
+                Column(
+                  children: [
+                    Text("Cant. ", style: TextStyle(fontSize: 12.0),),
+                    Text("2", style: TextStyle(fontSize: 13.0, fontWeight: FontWeight.bold),),
+
+                  ],
+                ),
+                Column(
+                  children: [
+                    Text("Total", style: TextStyle(fontSize: 12.0),),
+                    Text("2", style: TextStyle(fontSize: 13.0, fontWeight: FontWeight.bold),),
+
+                  ],
+                ),
+              ],
+            )
+          ],
+        ),
+      ),
     );
   }
 }
