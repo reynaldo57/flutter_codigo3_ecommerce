@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_codigo3_ecommerce/page/cart_page.dart';
 
 class ProductDetailpPge extends StatefulWidget {
+  Map sneaker;
+  ProductDetailpPge({required this.sneaker});
   @override
   _ProductDetailpPgeState createState() => _ProductDetailpPgeState();
 }
@@ -34,24 +36,25 @@ class _ProductDetailpPgeState extends State<ProductDetailpPge> {
                   Container(
                     height: 300.0,
                     decoration: BoxDecoration(
-                        boxShadow: [
-                          BoxShadow(
-                              color: Colors.black12.withOpacity(0.07),
-                              offset: Offset(0, 4),
-                              blurRadius: 10.0),
-                        ],
-                        borderRadius: BorderRadius.only(
-                          bottomLeft: Radius.circular(
-                            40.0,
-                          ),
-                          bottomRight: Radius.circular(
-                            40.0,
-                          ),
+                      boxShadow: [
+                        BoxShadow(
+                            color: Colors.black12.withOpacity(0.07),
+                            offset: Offset(0, 4),
+                            blurRadius: 10.0),
+                      ],
+                      borderRadius: BorderRadius.only(
+                        bottomLeft: Radius.circular(
+                          40.0,
                         ),
-                        image: DecorationImage(
-                            fit: BoxFit.cover,
-                            image: NetworkImage(
-                                "http://192.168.18.6:8000/media/brands/saucony_VO2rZgF.jpg"))),
+                        bottomRight: Radius.circular(
+                          40.0,
+                        ),
+                      ),
+                      image: DecorationImage(
+                        fit: BoxFit.cover,
+                        image: NetworkImage(widget.sneaker["image"]),
+                      ),
+                    ),
                   ),
                   SizedBox(
                     height: 20,
