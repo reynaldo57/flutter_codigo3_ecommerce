@@ -7,6 +7,9 @@ class ProductDetailpPge extends StatefulWidget {
 }
 
 class _ProductDetailpPgeState extends State<ProductDetailpPge> {
+
+  int _quantity = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,27 +32,24 @@ class _ProductDetailpPgeState extends State<ProductDetailpPge> {
             Container(
               height: 300.0,
               decoration: BoxDecoration(
-                boxShadow: [
-                  BoxShadow(
-                      color: Colors.black12.withOpacity(0.07),
-                      offset: Offset(0, 4),
-                      blurRadius: 10.0),
-                ],
-                borderRadius: BorderRadius.only(
-                  bottomLeft: Radius.circular(
-                    40.0,
+                  boxShadow: [
+                    BoxShadow(
+                        color: Colors.black12.withOpacity(0.07),
+                        offset: Offset(0, 4),
+                        blurRadius: 10.0),
+                  ],
+                  borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(
+                      40.0,
+                    ),
+                    bottomRight: Radius.circular(
+                      40.0,
+                    ),
                   ),
-                  bottomRight: Radius.circular(
-                    40.0,
-                  ),
-                ),
-                image: DecorationImage(
-                  fit: BoxFit.cover,
-                  image: NetworkImage(
-                    "http://192.168.18.6:8000/media/brands/saucony_VO2rZgF.jpg"
-                  )
-                )
-              ),
+                  image: DecorationImage(
+                      fit: BoxFit.cover,
+                      image: NetworkImage(
+                          "http://192.168.18.6:8000/media/brands/saucony_VO2rZgF.jpg"))),
             ),
             SizedBox(
               height: 20,
@@ -58,11 +58,10 @@ class _ProductDetailpPgeState extends State<ProductDetailpPge> {
               children: [
                 Padding(
                   padding: const EdgeInsets.only(left: 16.0),
-                  child: Text("ADIDAS",
-                  style: TextStyle(
-                    color: Colors.black54,
-                    fontSize: 14.0
-                  ),),
+                  child: Text(
+                    "ADIDAS",
+                    style: TextStyle(color: Colors.black54, fontSize: 14.0),
+                  ),
                 )
               ],
             ),
@@ -70,12 +69,12 @@ class _ProductDetailpPgeState extends State<ProductDetailpPge> {
               children: [
                 Padding(
                   padding: const EdgeInsets.only(left: 16.0),
-                  child: Text("ZAPATILLAS SUPERT COURT",
+                  child: Text(
+                    "ZAPATILLAS SUPERT COURT",
                     style: TextStyle(
                         color: Colors.black54,
                         fontSize: 16.0,
-                        fontFamily: "SourceSansPro-Regular"
-                    ),
+                        fontFamily: "SourceSansPro-Regular"),
                   ),
                 ),
                 Icon(
@@ -97,45 +96,64 @@ class _ProductDetailpPgeState extends State<ProductDetailpPge> {
                     ),
                   ),
                 ),
-
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16.0),
                   child: Row(
                     children: [
-                      Container(
-                        height: 40,
-                        width: 40,
-                        decoration: BoxDecoration(
-                          color: Color(0xff121212),
-                          borderRadius: BorderRadius.circular(14.0),
-                        ),
-                        child: Icon(
-                          CupertinoIcons.minus,
-                          color: Colors.white,
+                      GestureDetector(
+                        onTap: _quantity == 0 ? (){} : (){
+                          _quantity--;
+                          setState(() {
+
+                          });
+                        },
+                        child: Container(
+                          height: 40,
+                          width: 40,
+                          decoration: BoxDecoration(
+                            color: _quantity == 0 ? Colors.black38 : Color(
+                                0xff121212
+                            ),
+                            borderRadius: BorderRadius.circular(14.0),
+                          ),
+                          child: Icon(
+                            CupertinoIcons.minus,
+                            color: Colors.white,
+                          ),
                         ),
                       ),
                       Container(
                         width: 40,
                         height: 40,
                         alignment: Alignment.center,
-                        child: Text("0", style: TextStyle(fontSize: 20.0),),
-                      ),
-                      Container(
-                        height: 40,
-                        width: 40,
-                        decoration: BoxDecoration(
-                          color: Color(0xff121212),
-                          borderRadius: BorderRadius.circular(14.0),
+                        child: Text(
+                            _quantity.toString(),
+                          style: TextStyle(fontSize: 20.0),
                         ),
-                        child: Icon(
-                          CupertinoIcons.plus,
-                          color: Colors.white,
+                      ),
+                      GestureDetector(
+                        onTap: (){
+                          _quantity++;
+                          setState(() {
+
+                          });
+                        },
+                        child: Container(
+                          height: 40,
+                          width: 40,
+                          decoration: BoxDecoration(
+                            color: Color(0xff121212),
+                            borderRadius: BorderRadius.circular(14.0),
+                          ),
+                          child: Icon(
+                            CupertinoIcons.plus,
+                            color: Colors.white,
+                          ),
                         ),
                       ),
                     ],
                   ),
                 )
-
               ],
             )
             // Row(
@@ -150,7 +168,6 @@ class _ProductDetailpPgeState extends State<ProductDetailpPge> {
             //     )
             //   ],
             // ),
-
           ],
         ),
       ),
