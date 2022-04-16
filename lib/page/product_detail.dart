@@ -64,7 +64,7 @@ class _ProductDetailpPgeState extends State<ProductDetailpPge> {
                       Padding(
                         padding: const EdgeInsets.only(left: 16.0),
                         child: Text(
-                          "ADIDAS",
+                          widget.sneaker["brand"].toString().toUpperCase(),
                           style:
                               TextStyle(color: Colors.black54, fontSize: 14.0),
                         ),
@@ -76,7 +76,7 @@ class _ProductDetailpPgeState extends State<ProductDetailpPge> {
                       Padding(
                         padding: const EdgeInsets.only(left: 16.0),
                         child: Text(
-                          "ZAPATILLAS SUPERT COURT",
+                          "${widget.sneaker["name"].toString().toUpperCase()}",
                           style: TextStyle(
                               color: Colors.black54,
                               fontSize: 16.0,
@@ -87,8 +87,11 @@ class _ProductDetailpPgeState extends State<ProductDetailpPge> {
                         CupertinoIcons.checkmark_seal_fill,
                         color: Colors.black54,
                         size: 20.0,
-                      )
+                      ),
                     ],
+                  ),
+                  SizedBox(
+                    height: 10.0,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -96,7 +99,7 @@ class _ProductDetailpPgeState extends State<ProductDetailpPge> {
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 16.0),
                         child: Text(
-                          "S/ 299.00",
+                          "S/ ${widget.sneaker["price"].toString()}",
                           style: TextStyle(
                             fontSize: 16.0,
                           ),
@@ -185,7 +188,7 @@ class _ProductDetailpPgeState extends State<ProductDetailpPge> {
                           padding:
                               const EdgeInsets.only(left: 16.0, right: 16.0),
                           child: Text(
-                            "Las Supercourt irradian 40 años de estilo tenístico de adidas. Esta versión de las clásicas zapatillas de corte bajo luce las 3 Tiras perforadas sobre el exterior de cuero. Las costuras y los refuerzos decorativos aportan textura y profundidad a la silueta",
+                            widget.sneaker["description"],
                             style: TextStyle(
                                 color: Colors.black54, fontSize: 15.0),
                           ),
@@ -193,36 +196,7 @@ class _ProductDetailpPgeState extends State<ProductDetailpPge> {
                       )
                     ],
                   ),
-                  Row(
-                    children: [
-                      Flexible(
-                        child: Padding(
-                          padding:
-                              const EdgeInsets.only(left: 16.0, right: 16.0),
-                          child: Text(
-                            "Las Supercourt irradian 40 años de estilo tenístico de adidas. Esta versión de las clásicas zapatillas de corte bajo luce las 3 Tiras perforadas sobre el exterior de cuero. Las costuras y los refuerzos decorativos aportan textura y profundidad a la silueta",
-                            style: TextStyle(
-                                color: Colors.black54, fontSize: 15.0),
-                          ),
-                        ),
-                      )
-                    ],
-                  ),
-                  Row(
-                    children: [
-                      Flexible(
-                        child: Padding(
-                          padding:
-                              const EdgeInsets.only(left: 16.0, right: 16.0),
-                          child: Text(
-                            "Las Supercourt irradian 40 años de estilo tenístico de adidas. Esta versión de las clásicas zapatillas de corte bajo luce las 3 Tiras perforadas sobre el exterior de cuero. Las costuras y los refuerzos decorativos aportan textura y profundidad a la silueta",
-                            style: TextStyle(
-                                color: Colors.black54, fontSize: 15.0),
-                          ),
-                        ),
-                      )
-                    ],
-                  ),
+
                   SizedBox(
                     height: 80.0,
                   )
