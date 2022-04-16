@@ -218,17 +218,29 @@ class _ProductDetailpPgeState extends State<ProductDetailpPge> {
                   ],
                 ),
                 SizedBox(
-                  height: 40.0,
+                  height: 80.0,
                 )
               ],
             ),
           ),
           Align(
             alignment: Alignment.bottomCenter,
-            child: ElevatedButton(
-              onPressed: (){},
-              child: Text("Hola"),
-            ),
+            child: Container(
+              height: 54.0,
+              width: double.infinity,
+              margin: EdgeInsets.symmetric(vertical: 4.0, horizontal: 20.0),
+              child: ElevatedButton.icon(
+                onPressed: (){},
+                icon: Icon(Icons.add_shopping_cart_rounded),
+                label: Text("Agregar al Carrito"),
+                style: ElevatedButton.styleFrom(
+                  primary: Color(0xff121212),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(14.0),
+                  ),
+                ),
+              ),
+            )
           )
         ],
       )
