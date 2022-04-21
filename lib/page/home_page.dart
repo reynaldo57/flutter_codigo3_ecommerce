@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_codigo3_ecommerce/api/api_service.dart';
 import 'package:http/http.dart' as http;
 
 class HomePage extends StatefulWidget {
@@ -15,11 +16,20 @@ class _HomePageState extends State<HomePage> {
   final CarouselController _controller = CarouselController();
   List listBanner= [];
   List listBrand = [];
+  APIService apiService = new APIService();
 
 
   @override
   initState(){
     super.initState();
+    getData();
+  }
+
+  getData(){
+    apiService.getBanners().then((value) => listBanner = value);
+    apiService.getBrands().then((value) => listBrand = value);
+
+
   }
 
 

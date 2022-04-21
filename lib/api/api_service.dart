@@ -5,7 +5,7 @@ import 'dart:convert';
 import 'package:flutter_codigo3_ecommerce/utils/constants.dart';
 import 'package:http/http.dart' as http;
 
-class APIservice{
+class APIService{
   Future<List> getBanners() async{
     List listBanner = [];
     String _path = "$pathApi/banner/";
