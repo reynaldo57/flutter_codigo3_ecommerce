@@ -17,4 +17,16 @@ class APIservice{
     }
     return listBanner;
   }
+
+  Future<List>getBrands() async {
+    List listBrand = [];
+    String _path = "$pathApi/brand/";
+    Uri _uri = Uri.parse(_path);
+    http.Response response = await http.get(_uri);
+    if(response.statusCode == 200){
+      listBrand = json.decode(response.body);
+      return listBrand;
+    }
+    return listBrand;
+  }
 }

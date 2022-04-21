@@ -20,32 +20,8 @@ class _HomePageState extends State<HomePage> {
   @override
   initState(){
     super.initState();
-    getBanners();
-    getBrands();
   }
 
-  getBanners() async{
-    String _path = "http://192.168.18.6:8000/api/banner/";
-    Uri _uri = Uri.parse(_path);
-    http.Response response = await http.get(_uri);
-    if(response.statusCode == 200){
-      listBanner = json.decode(response.body);
-      setState(() {
-
-      });
-    }
-  }
-  getBrands() async {
-    String _path = "http://192.168.18.6:8000/api/brand/";
-    Uri _uri = Uri.parse(_path);
-    http.Response response = await http.get(_uri);
-    if(response.statusCode == 200){
-      listBrand = json.decode(response.body);
-      setState(() {
-
-      });
-    }
-  }
 
 
 
