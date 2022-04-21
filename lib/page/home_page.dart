@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_codigo3_ecommerce/api/api_service.dart';
+import 'package:flutter_codigo3_ecommerce/page/product_list_page.dart';
 import 'package:http/http.dart' as http;
 
 class HomePage extends StatefulWidget {
@@ -11,29 +12,28 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  
   int _current = 0;
   final CarouselController _controller = CarouselController();
-  List listBanner= [];
+  List listBanner = [];
   List listBrand = [];
   APIService apiService = new APIService();
 
-
   @override
-  initState(){
+  initState() {
     super.initState();
     getData();
   }
 
-  getData(){
-    apiService.getBanners().then((value) => listBanner = value);
+  getData() {
+    apiService.getBanners().then((value){
+      listBanner = value;
+      setState(() {
+
+      });
+    }
+    );
     apiService.getBrands().then((value) => listBrand = value);
-
-
   }
-
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -123,43 +123,53 @@ class _HomePageState extends State<HomePage> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Column(
-                    children: [
-                      Container(
-                        height: 80.0,
-                        width: 80,
-                        padding: EdgeInsets.all(8.0),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20.0),
-                          color: Colors.greenAccent,
-                          gradient: LinearGradient(
-                            colors: [
-                              Color(0xff5581F1),
-                              Color(0xff1153FC),
-                            ],
-                            begin: Alignment.topCenter,
-                            end: Alignment.bottomCenter,
-                          ),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Color(0xff1153FC).withOpacity(0.6),
-                              blurRadius: 7,
-                              offset: Offset(0, 4),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => ProductListPage(),
+                        ),
+                      );
+                    },
+                    child: Column(
+                      children: [
+                        Container(
+                          height: 80.0,
+                          width: 80,
+                          padding: EdgeInsets.all(8.0),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20.0),
+                            color: Colors.greenAccent,
+                            gradient: LinearGradient(
+                              colors: [
+                                Color(0xff5581F1),
+                                Color(0xff1153FC),
+                              ],
+                              begin: Alignment.topCenter,
+                              end: Alignment.bottomCenter,
                             ),
-                          ],
+                            boxShadow: [
+                              BoxShadow(
+                                color: Color(0xff1153FC).withOpacity(0.6),
+                                blurRadius: 7,
+                                offset: Offset(0, 4),
+                              ),
+                            ],
+                          ),
+                          child: Image.asset('assets/images/sneakers.png'),
                         ),
-                        child: Image.asset('assets/images/sneakers.png'),
-                      ),
-                      SizedBox(
-                        height: 10.0,
-                      ),
-                      Text(
-                        "Zapatillas",
-                        style: TextStyle(
-                          fontWeight: FontWeight.w400,
+                        SizedBox(
+                          height: 10.0,
                         ),
-                      ),
-                    ],
+                        Text(
+                          "Zapatillas",
+                          style: TextStyle(
+                            fontWeight: FontWeight.w400,
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                   Column(
                     children: [
@@ -375,8 +385,7 @@ class _HomePageState extends State<HomePage> {
                         color: Color(0xff212121),
                         fontWeight: FontWeight.w900,
                         fontFamily: 'SourceSansPro-SemiBold',
-                        fontSize: 15.0
-                    ),
+                        fontSize: 15.0),
                   ),
                 ],
               ),
@@ -399,7 +408,8 @@ class _HomePageState extends State<HomePage> {
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(16.0),
                       image: DecorationImage(
-                          image: NetworkImage(item["image"]), fit: BoxFit.cover),
+                          image: NetworkImage(item["image"]),
+                          fit: BoxFit.cover),
                     ),
                   );
                 }).toList(),
@@ -415,10 +425,10 @@ class _HomePageState extends State<HomePage> {
                       margin:
                           EdgeInsets.symmetric(vertical: 8.0, horizontal: 4.0),
                       decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          color: _current == entry.key
-                              ? Color.fromRGBO(0, 0, 0, 0.6)
-                              : Color.fromRGBO(0, 0, 0, 0.15),
+                        shape: BoxShape.circle,
+                        color: _current == entry.key
+                            ? Color.fromRGBO(0, 0, 0, 0.6)
+                            : Color.fromRGBO(0, 0, 0, 0.15),
                       ),
                     ),
                   );
@@ -435,8 +445,7 @@ class _HomePageState extends State<HomePage> {
                         color: Color(0xff212121),
                         fontWeight: FontWeight.w900,
                         fontFamily: 'SourceSansPro-Regular',
-                        fontSize: 15.0
-                    ),
+                        fontSize: 15.0),
                   ),
                 ],
               ),
@@ -450,50 +459,52 @@ class _HomePageState extends State<HomePage> {
                 crossAxisSpacing: 10,
                 mainAxisSpacing: 10,
                 physics: ScrollPhysics(),
-                children: listBrand.map<Widget>((item) => ClipRRect(
-                  borderRadius: BorderRadius.circular(20.0),
-                  child: Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20.0),
-                      color: Colors.greenAccent,
-                      image: DecorationImage(
-                          image: NetworkImage(
-                            item["image"],
-                          ),
-                          fit: BoxFit.cover),
-                    ),
-                    child: Stack(
-                      children: [
-                        Container(
-                          decoration: BoxDecoration(
-                            gradient: LinearGradient(
-                              colors: [
-                                Color(0xff121212),
-                                Colors.transparent,
+                children: listBrand
+                    .map<Widget>((item) => ClipRRect(
+                          borderRadius: BorderRadius.circular(20.0),
+                          child: Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(20.0),
+                              color: Colors.greenAccent,
+                              image: DecorationImage(
+                                  image: NetworkImage(
+                                    item["image"],
+                                  ),
+                                  fit: BoxFit.cover),
+                            ),
+                            child: Stack(
+                              children: [
+                                Container(
+                                  decoration: BoxDecoration(
+                                    gradient: LinearGradient(
+                                      colors: [
+                                        Color(0xff121212),
+                                        Colors.transparent,
+                                      ],
+                                      begin: Alignment.bottomCenter,
+                                      end: Alignment(0, 0.5),
+                                    ),
+                                  ),
+                                ),
+                                Align(
+                                  alignment: Alignment.bottomCenter,
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Text(
+                                      item["brand"],
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 15.0,
+                                      ),
+                                    ),
+                                  ),
+                                )
                               ],
-                              begin: Alignment.bottomCenter,
-                              end: Alignment(0, 0.5),
                             ),
                           ),
-                        ),
-                        Align(
-                          alignment: Alignment.bottomCenter,
-                          child: Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Text(
-                              item["brand"],
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 15.0,
-                              ),
-                            ),
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                )).toList(),
+                        ))
+                    .toList(),
               ),
               SizedBox(
                 height: 14,

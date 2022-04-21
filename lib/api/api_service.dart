@@ -29,4 +29,16 @@ class APIService{
     }
     return listBrand;
   }
+  Future<List> getProducts() async {
+    List listProduct = [];
+    String _path = "$pathApi/product/";
+    Uri _uri = Uri.parse(_path);
+    http.Response response = await http.get(_uri);
+    if (response.statusCode == 200) {
+      listProduct = json.decode(response.body);
+      return listProduct;
+    }
+    return listProduct;
+  }
+
 }
