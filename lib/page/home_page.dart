@@ -1,10 +1,8 @@
-import 'dart:convert';
 
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_codigo3_ecommerce/api/api_service.dart';
 import 'package:flutter_codigo3_ecommerce/page/product_list_page.dart';
-import 'package:http/http.dart' as http;
 
 class HomePage extends StatefulWidget {
   @override
@@ -25,14 +23,13 @@ class _HomePageState extends State<HomePage> {
   }
 
   getData() {
-    apiService.getBanners().then((value){
+    apiService.getBanners().then((value) {
       listBanner = value;
-      setState(() {
-
-      });
-    }
-    );
+      setState(() {});
+    });
     apiService.getBrands().then((value) => listBrand = value);
+
+
   }
 
   @override
