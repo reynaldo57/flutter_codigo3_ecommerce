@@ -13,7 +13,7 @@ class APIService{
     Uri _uri = Uri.parse(_path);
     http.Response response = await http.get (_uri);
     if(response.statusCode == 200){
-     listBanner = json.decode(response.body).map((e){return BannerModel.fromJson(e);}).toList();
+     listBanner = json.decode(response.body).map<BannerModel>((e){return BannerModel.fromJson(e);}).toList();
       return listBanner;
     }
     return listBanner;
