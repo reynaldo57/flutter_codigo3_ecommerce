@@ -1,9 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_codigo3_ecommerce/models/product_model.dart';
 import 'package:flutter_codigo3_ecommerce/page/cart_page.dart';
 
 class ProductDetailpPge extends StatefulWidget {
-  Map sneaker;
+  ProductModel sneaker;
   ProductDetailpPge({required this.sneaker});
   @override
   _ProductDetailpPgeState createState() => _ProductDetailpPgeState();
@@ -52,7 +53,7 @@ class _ProductDetailpPgeState extends State<ProductDetailpPge> {
                       ),
                       image: DecorationImage(
                         fit: BoxFit.cover,
-                        image: NetworkImage(widget.sneaker["image"]),
+                        image: NetworkImage(widget.sneaker.image),
                       ),
                     ),
                   ),
@@ -64,7 +65,7 @@ class _ProductDetailpPgeState extends State<ProductDetailpPge> {
                       Padding(
                         padding: const EdgeInsets.only(left: 16.0),
                         child: Text(
-                          widget.sneaker["brand"].toString().toUpperCase(),
+                          widget.sneaker.brand.toString().toUpperCase(),
                           style:
                               TextStyle(color: Colors.black54, fontSize: 14.0),
                         ),
@@ -76,7 +77,7 @@ class _ProductDetailpPgeState extends State<ProductDetailpPge> {
                       Padding(
                         padding: const EdgeInsets.only(left: 16.0),
                         child: Text(
-                          "${widget.sneaker["name"].toString().toUpperCase()}",
+                          "${widget.sneaker.name.toString().toUpperCase()}",
                           style: TextStyle(
                               color: Colors.black54,
                               fontSize: 16.0,
@@ -99,7 +100,7 @@ class _ProductDetailpPgeState extends State<ProductDetailpPge> {
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 16.0),
                         child: Text(
-                          "S/ ${widget.sneaker["price"].toString()}",
+                          "S/ ${widget.sneaker.price.toString()}",
                           style: TextStyle(
                             fontSize: 16.0,
                           ),
@@ -188,7 +189,7 @@ class _ProductDetailpPgeState extends State<ProductDetailpPge> {
                           padding:
                               const EdgeInsets.only(left: 16.0, right: 16.0),
                           child: Text(
-                            widget.sneaker["description"],
+                            widget.sneaker.description,
                             style: TextStyle(
                                 color: Colors.black54, fontSize: 15.0),
                           ),

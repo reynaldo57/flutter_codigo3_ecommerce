@@ -56,12 +56,12 @@ class _ProductListPageState extends State<ProductListPage> {
             .map<Widget>(
               (e) => GestureDetector(
                 onTap: () {
-                  // Navigator.push(
-                  //   context,
-                  //   MaterialPageRoute(
-                  //     builder: (context) => ProductDetailpPge(sneaker: e),
-                  //   ),
-                  // );
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => ProductDetailpPge(sneaker: e),
+                    ),
+                  );
                 },
                 child: Container(
                   margin: EdgeInsets.symmetric(horizontal: 8, vertical: 8),
