@@ -17,6 +17,7 @@ class ProductModel {
     required this.name,
     required this.description,
     required this.price,
+    this.quantity,
     required this.stock,
     required this.image,
     required this.activated,
@@ -28,6 +29,7 @@ class ProductModel {
   String name;
   String description;
   double price;
+  int? quantity;
   int stock;
   String image;
   bool activated;
@@ -39,6 +41,7 @@ class ProductModel {
     name: json["name"],
     description: json["description"],
     price: json["price"],
+    quantity: json["quantity"] ?? 0,
     stock: json["stock"],
     image: json["image"],
     activated: json["activated"],
@@ -51,6 +54,7 @@ class ProductModel {
     "name": name,
     "description": description,
     "price": price,
+    "quantity": quantity ?? 0,
     "stock": stock,
     "image": image,
     "activated": activated,
