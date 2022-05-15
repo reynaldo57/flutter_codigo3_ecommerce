@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_codigo3_ecommerce/api/api_service.dart';
+import 'package:flutter_codigo3_ecommerce/models/product_model.dart';
 import 'package:flutter_codigo3_ecommerce/page/product_detail.dart';
 import 'package:http/http.dart' as http;
 
@@ -11,7 +12,7 @@ class ProductListPage extends StatefulWidget {
 }
 
 class _ProductListPageState extends State<ProductListPage> {
-  List listProduct = [];
+  List <ProductModel>listProduct = [];
   APIService apiService = new APIService();
 
   @override
@@ -55,12 +56,12 @@ class _ProductListPageState extends State<ProductListPage> {
             .map<Widget>(
               (e) => GestureDetector(
                 onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => ProductDetailpPge(sneaker: e),
-                    ),
-                  );
+                  // Navigator.push(
+                  //   context,
+                  //   MaterialPageRoute(
+                  //     builder: (context) => ProductDetailpPge(sneaker: e),
+                  //   ),
+                  // );
                 },
                 child: Container(
                   margin: EdgeInsets.symmetric(horizontal: 8, vertical: 8),
@@ -75,7 +76,7 @@ class _ProductListPageState extends State<ProductListPage> {
                           image: DecorationImage(
                             fit: BoxFit.cover,
                             image: NetworkImage(
-                              e["image"],
+                              e.image,
                             ),
                           ),
                         ),
@@ -101,7 +102,7 @@ class _ProductListPageState extends State<ProductListPage> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    e["name"].toString().toUpperCase(),
+                                    e.name.toString().toUpperCase(),
                                     style: TextStyle(
                                         fontWeight: FontWeight.bold,
                                         color: Color(0xff121212),
@@ -111,7 +112,7 @@ class _ProductListPageState extends State<ProductListPage> {
                                     overflow: TextOverflow.ellipsis,
                                   ),
                                   Text(
-                                    "S/ ${e["price"]}",
+                                    "S/ ${e.price}",
                                     style: TextStyle(
                                         fontWeight: FontWeight.normal,
                                         color: Color(0xff121212)),

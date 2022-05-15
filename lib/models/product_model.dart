@@ -27,7 +27,7 @@ class ProductModel {
   String category;
   String name;
   String description;
-  int price;
+  double price;
   int stock;
   String image;
   bool activated;
