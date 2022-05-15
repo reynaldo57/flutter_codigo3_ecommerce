@@ -1,4 +1,4 @@
 
 
 
-const String pathApi = 'http://192.168.156.95:8000/api';
+const String pathApi = 'http://192.168.18.6:8000/api';

@@ -2,6 +2,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_codigo3_ecommerce/api/api_service.dart';
+import 'package:flutter_codigo3_ecommerce/models/banner.model.dart';
 import 'package:flutter_codigo3_ecommerce/page/product_list_page.dart';
 
 class HomePage extends StatefulWidget {
@@ -12,7 +13,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   int _current = 0;
   final CarouselController _controller = CarouselController();
-  List listBanner = [];
+  List <BannerModel>listBanner = [];
   List listBrand = [];
   APIService apiService = new APIService();
 
@@ -405,7 +406,7 @@ class _HomePageState extends State<HomePage> {
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(16.0),
                       image: DecorationImage(
-                          image: NetworkImage(item["image"]),
+                          image: NetworkImage(item.image),
                           fit: BoxFit.cover),
                     ),
                   );
