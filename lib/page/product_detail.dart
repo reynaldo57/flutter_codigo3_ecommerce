@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_codigo3_ecommerce/db/db_manager.dart';
 import 'package:flutter_codigo3_ecommerce/models/product_model.dart';
 import 'package:flutter_codigo3_ecommerce/page/cart_page.dart';
 
@@ -197,7 +198,6 @@ class _ProductDetailpPgeState extends State<ProductDetailpPge> {
                       )
                     ],
                   ),
-
                   SizedBox(
                     height: 80.0,
                   )
@@ -213,12 +213,25 @@ class _ProductDetailpPgeState extends State<ProductDetailpPge> {
                   child: ElevatedButton.icon(
                     onPressed: _quantity != 0
                         ? () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => CartPage(),
-                              ),
+                            // Navigator.push(
+                            //   context,
+                            //   MaterialPageRoute(
+                            //     builder: (context) => CartPage(),
+                            //   ),
+                            // );
+                            ProductModel product = new ProductModel(
+                                id: 1,
+                                brand: "adidas",
+                                category: "zapatillas",
+                                name: "supercourt",
+                                description: "asd",
+                                price: 12.99,
+                                stock: 10,
+                                image: "asd",
+                                activated: true,
+                                quantity: 10,
                             );
+                            DBManager.db.insertProduct(product);
                           }
                         : () {},
                     icon: Icon(Icons.add_shopping_cart_rounded),
